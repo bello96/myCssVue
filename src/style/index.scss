@@ -1,0 +1,175 @@
+@import "./iconfont.scss";
+@import "./mixin.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+select,
+option {
+    outline: 0;
+    border: 0;
+    -webkit-appearance: none;
+}
+@mixin flex-ui {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+@mixin space-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+@mixin center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+@mixin align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+@mixin flex-direction-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+@mixin flex-wrap {
+    flex-wrap: wrap;
+}
+@mixin flex {
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+}
+html {
+    font-size: 13.33334vw;
+}
+.app-container {
+    .hd {
+        z-index: 99;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0.88rem;
+        line-height: 0.88rem;
+        padding: 0 0.2rem;
+        background: #fff;
+        @include flex-ui;
+        @include space-between;
+        // 调用混合指令themify() ,定义规则,此处的规则会替换@content
+        @include themify() {
+            color: themed("fontColor");
+            border: themed("borderColor");
+        }
+        @include fontsfy(){
+            font-size: fontd("fontSize");
+        }
+    }
+    .content {
+        .banner {
+            width: 100%;
+            height: 15vh;
+            opacity: 0.5;
+            margin: 0.2rem 0;
+            @include themify() {
+                background: themed("bgColor");
+            }
+        }
+        .nav-box {
+            width: 100vw;
+            @include flex-ui;
+            @include flex-wrap;
+            @include themify() {
+                border-top: themed("borderColor");
+                border-right: themed("borderColor");
+            }
+            .item {
+                width: 33.33%;
+                padding: 0.2rem 0;
+                @include flex-ui;
+                @include flex-direction-column;
+                @include flex-wrap;
+                @include center;
+                @include align-center;
+                @include themify() {
+                    color: themed("fontColor");
+                    border-left: themed("borderColor");
+                    border-bottom: themed("borderColor");
+                }
+                @include fontsfy(){
+                    font-size: fontd("fontSize");
+                }
+                span {
+                    margin-top: 0.1rem;
+                }
+            }
+        }
+        .sel-box {
+            text-align: right;
+            select {
+                height: 0.6rem;
+                margin-left:.2rem;
+                width:1rem;
+                @include themify() {
+                    color: themed("fontColor");
+                    border: themed("borderColor");
+                }
+                @include fontsfy(){
+                    font-size: fontd("fontSize");
+                }
+            }
+        }
+        [class*="icon-"]{
+            @include fontsfy(){
+                font-size: fontd("fontSize") * 1.5;
+            }
+        }
+    }
+    .ft {
+        z-index: 99;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.2rem 0;
+        background-color: #fff;
+        @include flex-ui;
+        @include align-center;
+        @include themify() {
+            color: themed("fontColor");
+            border: themed("borderColor");
+        }
+        @include fontsfy(){
+            font-size: fontd("fontSize");
+        }
+        .flex {
+            @include flex-ui;
+            @include flex;
+            @include flex-direction-column;
+            text-align: center;
+            i {
+                display: block;
+                width: 0.4rem;
+                height: 0.4rem;
+                margin: 0 auto 0.06rem;
+                @include fontsfy(){
+                    font-size: fontd("fontSize") *1.4;
+                }
+            }
+        }
+    }
+}

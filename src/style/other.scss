@@ -1,0 +1,52 @@
+@import "./common.scss";
+@import "./iconfont.scss";
+@import "./mixin.scss";
+// map-get  fontcolor:$color   $color:red; 
+// scss   @each  @funtion  @content  map- ...
+// theme-default  hd {}    & 父元素
+// function name(key){}
+.hd{
+   @include flex-ui; 
+   @include themify(){
+        color: themed("fontColor");
+        font-size:themed("fontSize");
+        border:themed("borderColor")
+   }
+   @include space-between;
+   @include align-center;
+   height:.88rem;
+}
+.nav{
+    @include flex-ui;
+    flex-wrap:wrap;
+    .item{
+        width: 33.33%;
+        padding:.3rem 0;
+        @include flex-direction-column;
+        @include flex-ui;
+       text-align:center;
+        @include themify(){
+            color: themed("fontColor");
+            font-size:themed("fontSize") * 2;
+            border:themed("borderColor")
+       }
+       i{
+           display: block;
+       }
+    }
+}
+
+// minix + include    slot vue  
+// @content
+// 
+@mixin bg {
+    width:100px;
+    height: 100px;
+    @content;
+}
+.demo{
+   @include bg{
+        background-color: red;
+        color:red;
+    }
+}

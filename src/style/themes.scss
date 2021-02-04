@@ -1,0 +1,52 @@
+@import "./variable.scss";
+
+// 定义主题
+$themes: (
+    black: (
+        fontColor: $black,
+        bgColor: $black,
+        borderColor:1px solid $black
+    ),
+    red: (
+        fontColor: $red,
+        bgColor: $red,
+        borderColor:1px solid $red
+    ),
+    green: (
+        fontColor: $green,
+        bgColor: $green,
+        borderColor:1px solid $green
+    ),
+    blue: (
+        fontColor: $blue,
+        bgColor: $blue,
+        borderColor:1px solid $blue
+    ),
+    orange: (
+        fontColor: $orange,
+        bgColor: $orange,
+        borderColor:1px solid $orange
+    ),
+    purple: (
+        fontColor: $purple,
+        bgColor: $purple,
+        borderColor:1px solid $purple
+    ),
+);
+
+// 定义字号
+$fontsizes:(
+    big:(
+        fontSize:$bigSzie
+    ),
+    small:(
+        fontSize:$smallSzie
+    ),
+    middle:(
+        fontSize:$middleSzie
+    )
+)
+
+
+
+
